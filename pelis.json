@@ -1,1 +1,17 @@
-[]
+[{
+  "id":2,
+  "title": "La bella y la bestia",
+  "tags": ["vieja","clasico","disney"]
+},{
+  "id":4,
+  "title": "Volver a lo mismo",
+  "tags": ["nueva","amor","diferente"]
+},{
+  "id":7,
+  "title": "Revolución",
+  "tags": ["historia","lucha","guerra"]
+},{
+  "id":9,
+  "title": "Artefacto astral",
+  "tags": ["ficcion","tecnologia","diferente"]
+}]

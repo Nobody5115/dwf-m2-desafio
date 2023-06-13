@@ -1,15 +1,34 @@
 import * as minimist from "minimist";
+import { PelisController } from "./controllers";
+import { title } from "process";
 
 function parseaParams(argv) {
   const resultado = minimist(argv);
 
   return resultado;
 }
-
-function main() {
+async function optionControl(params) {
+  const controller = new PelisController();
+  if (params._.includes("add")) {
+    return await controller.add({
+      id: params.id,
+      title: params.title,
+      tags: params.tags,
+    });
+  } else if (params._.includes("get")) {
+    return await controller.get({ id: params._[1] });
+  } else if (params._.includes("search")) {
+    return await controller.get({
+      search: { title: params.title, tag: params.tag },
+    });
+  } else {
+    return await controller.pelis.getAll();
+  }
+}
+async function main() {
   const params = parseaParams(process.argv.slice(2));
-
-  console.log(params);
+  const resultado = await optionControl(params);
+  console.log(resultado);
 }
 
 main();
